@@ -1,0 +1,4 @@
+fastapi
+uvicorn[standard]
+PyJWT>=2.8,<3
+qrcode[pil]>=7.4,<9

@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+backend/.venv/
+
+# Local databases and signing secrets
+*.db
+*.sqlite
+*.sqlite3
+**/.jwt_secret
+**/.qr_secret
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Frontend dependencies and build output
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Local editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
