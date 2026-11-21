@@ -97,6 +97,12 @@ Port `8080` başka bir uygulama (örneğin Adobe Connect) tarafından kullanıld
 
 Depoda bulunan `render.yaml`, React arayüzü ve FastAPI backend'ini Render'ın ücretsiz katmanında ayrı servisler olarak yayınlayacak şekilde hazırlanmıştır. Ücretsiz katmanda kalmak için servisleri oluştururken **Free** seç; ücretli plan seçme ve ödeme yöntemi ekleme. Render hesabıyla GitHub deposunu bağlayıp **New > Blueprint** üzerinden bu depoyu seçerek kurulumu başlatabilirsin. Render, `render.yaml` dosyasındaki iki servisi (`kahvecell-web-reset-34` ve `kahvecell-api-reset-34`) birlikte oluşturur. İlk derleme birkaç dakika sürebilir.
 
+Canlı demo adresleri:
+
+- Site: https://kahvecell-web-reset-34.onrender.com
+- Backend: https://kahvecell-api-reset-34.onrender.com
+- API dokümantasyonu: https://kahvecell-api-reset-34.onrender.com/docs
+
 Ücretsiz katmanın önemli sınırları:
 
 - Backend 15 dakika istek almazsa uykuya geçer; ilk açılış isteği yaklaşık bir dakika bekleyebilir.
