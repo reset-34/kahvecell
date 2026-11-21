@@ -93,6 +93,21 @@ Veritabanı ve QR/JWT imzalama anahtarları `kahvecell-data` adlı Docker volume
 
 Port `8080` başka bir uygulama (örneğin Adobe Connect) tarafından kullanıldığı için frontend `8081` portundan sunulur.
 
+## Ücretsiz canlı demo (Render)
+
+Depoda bulunan `render.yaml`, React arayüzü ve FastAPI backend'ini Render'ın ücretsiz katmanında ayrı servisler olarak yayınlayacak şekilde hazırlanmıştır. Ücretsiz katmanda kalmak için servisleri oluştururken **Free** seç; ücretli plan seçme ve ödeme yöntemi ekleme. Render hesabıyla GitHub deposunu bağlayıp **New > Blueprint** üzerinden bu depoyu seçerek kurulumu başlatabilirsin. Render, `render.yaml` dosyasındaki iki servisi (`kahvecell-web-reset-34` ve `kahvecell-api-reset-34`) birlikte oluşturur. İlk derleme birkaç dakika sürebilir.
+
+Ücretsiz katmanın önemli sınırları:
+
+- Backend 15 dakika istek almazsa uykuya geçer; ilk açılış isteği yaklaşık bir dakika bekleyebilir.
+- Ücretsiz servisin dosya sistemi kalıcı değildir. Backend yeniden başladığında SQLite verisi sıfırlanabilir; başlangıç betiği örnek dükkânları yeniden oluşturur.
+- Bu nedenle canlı demo hesabına gerçek telefon, parola, kart veya kişisel veri girme. OTP ve ödeme zaten simülasyondur.
+- Ücretsiz kullanım kotası aşılırsa ücretli plana geçmeden önce servisi durdur; ücretsiz planda devam etmek için ödeme yöntemi ekleme.
+
+Her Render deploy'unda JWT ve QR imza anahtarları gizli ortam değişkenleri olarak otomatik üretilir; anahtarlar kaynak koda yazılmaz. SQLite dosyası ücretsiz katmanda kalıcı olmadığı için bu yayın eğitim ve gösterim içindir, gerçek kullanıcılar için uygun değildir.
+
+> Bu proje için oluşturulan herkese açık GitHub deposu kaynak kodunu gösterir. Render servisi ayrıca oluşturulup deploy edilene kadar internette çalışan site adresi oluşmaz.
+
 ## Demo hesapları ve test akışı
 
 İlk başlatmada Ankara'da örnek dükkânlar ve demo dükkân sahibi hazırlanır:
