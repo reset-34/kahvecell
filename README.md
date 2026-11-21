@@ -138,29 +138,36 @@ cd backend
 python -m py_compile main.py auth.py database.py orders.py order_events.py shops.py subscriptions.py
 ```
 
-## Herkese açık GitHub repository'si
+## Herkese açık GitHub deposu
 
-GitHub CLI (`gh`) bu bilgisayarda kurulu değil. Kök `.gitignore`; SQLite veritabanı, `.jwt_secret`, `.qr_secret`, `.env`, `node_modules` ve build çıktıları gibi yerel dosyaları dışarıda bırakır. Bu case-study'nin örnek dükkân sahibi hesabı ve şifresi demo amaçlıdır; gerçek sistemde varsayılan demo hesaplarını kaldır.
+Kodun herkese açık deposu: https://github.com/reset-34/kahvecell
 
-1. https://github.com/new adresinde boş bir repository oluştur ve görünürlüğü **Public** seç. GitHub'ın yeni dosyalar/README ekleme seçeneklerini boş bırak.
-2. Bu proje klasöründeki terminalde şu komutları çalıştır:
+Git deposu ve ilk yerel kayıt (commit) hazırlandı. Sonraki değişiklikleri GitHub'a göndermek için proje klasöründe şu adımları izle:
+
+1. Değişen dosyaları ve Git'in takip edeceği dosyaları kontrol et:
 
    ```powershell
-   git init -b main
-   git add .gitignore README.md docker-compose.yml backend frontend "KahveCell'i Baslat.bat" "KahveCell'i Durdur.bat"
    git status
    ```
 
-3. `git status` çıktısında `kahvecell.db`, `.jwt_secret`, `.qr_secret`, `.env`, `.venv` veya `node_modules` görünmediğini kontrol et. Sonra:
+2. Göndermek istediğin dosyaları Git'e ekle ve neleri göndereceğini tekrar kontrol et:
 
    ```powershell
-   git commit -m "Add KahveCell coffee subscription app"
-   git remote add origin https://github.com/GITHUB-KULLANICI-ADIN/REPOSITORY-ADI.git
-   git push -u origin main
+   git add .
+   git status
    ```
 
-4. `GITHUB-KULLANICI-ADIN` ve `REPOSITORY-ADI` kısımlarını GitHub hesabındaki gerçek kullanıcı adı ve oluşturduğun repository adıyla değiştir. Git kimlik doğrulaması açılırsa GitHub'ın giriş penceresini kullan; parolanı veya token'ını sohbet/README dosyasına yazma.
+   `kahvecell.db`, `.jwt_secret`, `.qr_secret`, `.env`, `.venv` veya `node_modules` listede görünmemeli. Kök `.gitignore` bu yerel dosyaları dışarıda tutar.
 
-İlk satır `git init -b main` hatası verirse Git sürümü eski olabilir; `git init` çalıştırıp ardından `git branch -M main` kullan.
+3. Değişiklikleri açıklayan Türkçe bir kayıt oluştur ve GitHub'a gönder:
 
-> Public repository, kaynak kodunu ve README'yi herkese gösterir; bilgisayarındaki uygulamayı internette kendiliğinden çalıştırmaz. Herkesin tarayıcıdan kullanacağı canlı bir site için FastAPI, SQLite ve Docker'ı çalıştırabilecek ayrı bir sunucuya dağıtım gerekir; GitHub Pages yalnızca frontend yayınlayabildiği için bu full-stack uygulamayı tek başına çalıştıramaz.
+   ```powershell
+   git commit -m "Türkçe kısa değişiklik açıklaması"
+   git push
+   ```
+
+   Örnek: `git commit -m "Sipariş ekranını iyileştir"`
+
+GitHub giriş penceresi açılırsa oradan giriş yap; parolanı veya erişim anahtarını sohbet ya da proje dosyalarına yazma. Depodaki dükkân sahibi hesabı yalnızca demo içindir; gerçek bir sistemde varsayılan demo hesabını kaldır.
+
+> Herkese açık GitHub deposu kodu ve açıklamaları gösterir; siteyi herkesin kullanabileceği şekilde internette kendiliğinden çalıştırmaz. Canlı site için FastAPI, SQLite ve Docker'ı çalıştırabilen ayrı bir sunucuya dağıtım gerekir. GitHub Pages yalnızca frontend dosyalarını sunar; bu full-stack uygulamanın backend'ini tek başına çalıştıramaz.
